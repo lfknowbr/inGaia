@@ -4,16 +4,17 @@
   "description": "Teste",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "lint-staged": {
     "*.js": [
-      "standard"
+      "standard --fix",
+      "git add"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit":"lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "repository": {
@@ -31,6 +32,8 @@
   "homepage": "https://github.com/lfknowbr/inGaia#readme",
   "devDependencies": {
     "husky": "^4.0.0",
+    "jest": "^24.9.0",
+    "jest-cli": "^24.9.0",
     "lint-staged": "^9.5.0",
     "standard": "^14.3.1"
   },
