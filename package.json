@@ -2,13 +2,16 @@
   "name": "ingaia",
   "version": "1.0.0",
   "description": "Teste",
-  "main": "index.js",
+  "main": "src/main/index.js",
   "scripts": {
+    "start": "node src/main/index.js",
     "test": "jest",
     "test:staged": "jest"
   },
   "standard": {
-    "env": ["jest"]
+    "env": [
+      "jest"
+    ]
   },
   "repository": {
     "type": "git",
@@ -30,5 +33,7 @@
     "lint-staged": "^9.5.0",
     "standard": "^14.3.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
