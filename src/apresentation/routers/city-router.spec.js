@@ -1,19 +1,5 @@
-class CityRouter {
-  route (httpRequest) {
-    if (!httpRequest || !httpRequest.body) {
-      return {
-        statusCode: 500
-      }
-    }
-
-    const { city } = httpRequest.body
-    if (!city) {
-      return {
-        statusCode: 400
-      }
-    }
-  }
-}
+const CityRouter = require('../routers/city-router')
+const MissingParamError = require('../helpers/missing-param-error')
 
 describe('City router', () => {
   test('Retorna erro 400 se o nome da cidade não foi informado ', () => {
@@ -25,6 +11,7 @@ describe('City router', () => {
     const httpResponse = sut.route(httpRequest)
     console.log(httpResponse)
     expect(httpResponse.statusCode).toBe(400)
+    expect(httpResponse.body).toEqual(new MissingParamError('city'))
   })
 
   test('Retorna erro 500 se não recebermos um httpRequest ', () => {
