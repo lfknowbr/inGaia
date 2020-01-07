@@ -1,5 +1,8 @@
 # inGaia
 inGaia Teste para vaga de Nodejs Senior
 
-# Plugin utilizados para formatação e validação
-husky: Executa um script antes de fazer um commit 
+## Plugin utilizados
+- standard: É similar ao Eslint usa o padrão do javaScript Standard Style https://standardjs.com/
+- husky: Executa um script antes de fazer um commit  https://github.com/typicode/husky
+- lint-staged: Permite que rodemos script em nossa stage area no git https://github.com/okonet/lint-staged
+- jest: realizar teste https://jestjs.io/
