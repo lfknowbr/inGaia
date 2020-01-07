@@ -1,0 +1,33 @@
+{
+  "name": "ingaia",
+  "version": "1.0.0",
+  "description": "Teste",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "standard"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lfknowbr/inGaia.git"
+  },
+  "keywords": [
+    "inGaia"
+  ],
+  "author": "Luis Fernando",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lfknowbr/inGaia/issues"
+  },
+  "homepage": "https://github.com/lfknowbr/inGaia#readme",
+  "devDependencies": {
+    "husky": "^4.0.0",
+    "lint-staged": "^9.5.0",
+    "standard": "^14.3.1"
+  },
+  "dependencies": {}
+}
