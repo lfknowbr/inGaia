@@ -1,18 +1,18 @@
 const HttpResponse = require('../helpers/http-response')
 module.exports = class PlayListRouter {
   constructor (plaiListUseCase) {
-    this.plaiListUseCase = plaiListUseCase
+    this.playListUseCase = plaiListUseCase
   }
 
   route (httpRequest) {
-    if (!httpRequest || !httpRequest.body) {
+    if (!httpRequest || !httpRequest.query) {
       return HttpResponse.serverError()
     }
 
-    const { city } = httpRequest.body
+    const city = httpRequest.query.city
     if (!city) {
       return HttpResponse.badRequest('city')
     }
-    this.plaiListUseCase.get(city)
+    return this.playListUseCase.get(city)
   }
 }
