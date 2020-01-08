@@ -1,4 +1,4 @@
-const CityRouter = require('../routers/city-router')
+const PlayListRouter = require('../routers/playList-router')
 const MissingParamError = require('../../utils/errors/missing-param-error')
 
 const makeSut = () => {
@@ -8,11 +8,11 @@ const makeSut = () => {
     }
   }
 
-  const cityUseCaseSpy = new CityUseCaseSpy()
-  const sut = new CityRouter(cityUseCaseSpy)
+  const playListUseCaseSpy = new CityUseCaseSpy()
+  const sut = new PlayListRouter(playListUseCaseSpy)
   return {
     sut,
-    cityUseCaseSpy
+    playListUseCaseSpy
   }
 }
 
@@ -42,13 +42,13 @@ describe('City router', () => {
   })
 
   test('Validade se o city recebido é a mesma city que esta no httpRequest', () => {
-    const { sut, cityUseCaseSpy } = makeSut()
+    const { sut, playListUseCaseSpy } = makeSut()
     const httpRequest = {
       body: {
         city: 'any_city'
       }
     }
     sut.route(httpRequest)
-    expect(cityUseCaseSpy.city).toBe(httpRequest.body.city)
+    expect(playListUseCaseSpy.city).toBe(httpRequest.body.city)
   })
 })
