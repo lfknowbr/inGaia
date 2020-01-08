@@ -1,5 +1,5 @@
 const CityRouter = require('../routers/city-router')
-const MissingParamError = require('../helpers/missing-param-error')
+const MissingParamError = require('../../utils/errors/missing-param-error')
 
 const makeSut = () => {
   class CityUseCaseSpy {
@@ -24,7 +24,7 @@ describe('City router', () => {
       }
     }
     const httpResponse = sut.route(httpRequest)
-    console.log(httpResponse)
+
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body).toEqual(new MissingParamError('city'))
   })
@@ -41,7 +41,7 @@ describe('City router', () => {
     expect(httpResponse.statusCode).toBe(500)
   })
 
-  test('Validade se o email recebido é o mesmo email que esta no httpRequest', () => {
+  test('Validade se o city recebido é a mesma city que esta no httpRequest', () => {
     const { sut, cityUseCaseSpy } = makeSut()
     const httpRequest = {
       body: {

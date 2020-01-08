@@ -5,7 +5,8 @@
   "main": "src/main/index.js",
   "scripts": {
     "start": "node src/main/index.js",
-    "test": "jest --colors --noStackTrace --passWithNoTests",
+    "test": "jest --colors --noStackTrace  --passWithNoTests",
+    "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:staged": "npm test -- --findRelatedTests --silent",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
     "test:ci": "npm test -- --coverage --silent"
@@ -20,7 +21,9 @@
     "url": "git+https://github.com/lfknowbr/inGaia.git"
   },
   "keywords": [
-    "inGaia"
+    "Clean Architecture",
+    "Nodejs",
+    "API"
   ],
   "author": "Luis Fernando",
   "license": "ISC",
@@ -37,6 +40,8 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
+    "axios": "^0.19.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   }
 }
