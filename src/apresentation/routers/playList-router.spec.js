@@ -17,19 +17,11 @@ const makeSut = () => {
 
 describe('City router', () => {
   test('Retorna erro 400 se o nome da cidade não foi informado ', () => {
-    // const { sut } = makeSut()
-    /* const httpRequest = {
-      body: {
-      }
-    } */
-    // const httpResponse = sut.route(httpRequest)
-
-    // expect(httpResponse.statusCode).toBe(400)
-    // expect(httpResponse.body).toEqual(new MissingParamError('city'))
   })
 
   test('Retorna erro 500 se não recebermos um httpRequest ', () => {
     const { sut } = makeSut()
+
     const httpResponse = sut.route()
     expect(httpResponse.statusCode).toBe(500)
   })
@@ -48,6 +40,5 @@ describe('City router', () => {
       }
     }
     sut.route(httpRequest)
-    // expect(playListUseCaseSpy.city).toBe(httpRequest.body.city)
   })
 })

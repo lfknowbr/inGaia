@@ -1,11 +1,12 @@
 const HttpResponse = require('../helpers/http-response')
+
 module.exports = class PlayListRouter {
   constructor (plaiListUseCase) {
     this.playListUseCase = plaiListUseCase
   }
 
-  route (httpRequest) {
-    if (!httpRequest || !httpRequest.query) {
+  async route (httpRequest) {
+    if (!httpRequest) {
       return HttpResponse.serverError()
     }
 
@@ -13,6 +14,13 @@ module.exports = class PlayListRouter {
     if (!city) {
       return HttpResponse.badRequest('city')
     }
-    return this.playListUseCase.get(city)
+    await this.playListUseCase.get(city)
+      .then(response => {
+        this.response = response
+      })
+    return {
+      statusCode: 200,
+      body: this.response
+    }
   }
 }
